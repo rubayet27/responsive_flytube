@@ -98,8 +98,11 @@ class AppBarLayout extends StatelessWidget implements PreferredSizeWidget {
                     topRight: Radius.circular(20),
                     bottomRight: Radius.circular(20)),
               ),
-              child:const Center(
-                child: Icon(Icons.search, size: 27),
+              child: const Center(
+                child: Icon(
+                  Icons.search,
+                  size: 27,
+                ),
               ),
             ),
             Padding(
