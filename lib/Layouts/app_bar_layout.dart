@@ -48,6 +48,8 @@ class AppBarLayout extends StatelessWidget implements PreferredSizeWidget {
           ),
         ],
       ),
+      //Leading part done
+
       centerTitle: true,
       title: Container(
         height: 36,
@@ -121,7 +123,24 @@ class AppBarLayout extends StatelessWidget implements PreferredSizeWidget {
             ),
           ],
         ),
-      ), //Leading part done
+      ),
+
+      actions: const [
+        Padding(
+          padding: EdgeInsets.only(right: 10),
+          child: Icon(
+            Icons.notifications_none_outlined,
+            size: 27,
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(right: 20),
+          child: Icon(
+            Icons.account_circle,
+            size: 27,
+          ),
+        ),
+      ],
     );
   }
 }
