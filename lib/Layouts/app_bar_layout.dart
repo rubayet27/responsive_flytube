@@ -1,23 +1,53 @@
 import 'package:flutter/material.dart';
 
-class AppBarLayout extends StatelessWidget implements PreferredSizeWidget {
+class AppBarLayout extends StatefulWidget implements PreferredSizeWidget {
+  late ValueChanged onValueChanged;
   late bool enabled;
   late bool tabletMode;
   late final VoidCallback?
       onMenuPressed; //the enabled function to open the drawer inside body
 
   AppBarLayout(
-      {required this.enabled, this.onMenuPressed, this.tabletMode = false});
+      {required this.enabled,
+      this.onMenuPressed,
+      this.tabletMode = false,
+      required this.onValueChanged});
+
+  @override
+  State<AppBarLayout> createState() => _AppBarLayoutState();
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+}
+
+class _AppBarLayoutState extends State<AppBarLayout> {
+  late FocusNode _focusNode;
+
+  @override
+  void initState() {
+    _focusNode = FocusNode();
+    _focusNode.addListener(_onValueChanged);
+    super.initState();
+  }
+
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
+  }
+
+  void _onValueChanged() {
+    setState(() {
+      widget.onValueChanged(_focusNode.hasFocus);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var wid = MediaQuery.of(context).size.width;
     return AppBar(
       elevation: 0.1,
       backgroundColor: const Color(0xFF242323),
-      leadingWidth: 300,
+      leadingWidth: 250,
       leading: Row(
         children: [
           Flexible(
@@ -27,12 +57,12 @@ class AppBarLayout extends StatelessWidget implements PreferredSizeWidget {
                 return IconButton(
                   icon: const Icon(Icons.menu),
                   splashRadius: 20,
-                  onPressed: tabletMode
+                  onPressed: widget.tabletMode
                       ? () {
                           Scaffold.of(context)
                               .openDrawer(); // this is special for Tablet Layout
                         }
-                      : onMenuPressed,
+                      : widget.onMenuPressed,
                 );
               }),
             ),
@@ -73,9 +103,9 @@ class AppBarLayout extends StatelessWidget implements PreferredSizeWidget {
                       topLeft: Radius.circular(20),
                       bottomLeft: Radius.circular(20)),
                 ),
-                child: const TextField(
-                  //textAlignVertical: TextAlignVertical.center,
-                  decoration: InputDecoration(
+                child: TextField(
+                  focusNode: _focusNode,
+                  decoration: const InputDecoration(
                     contentPadding:
                         EdgeInsets.symmetric(vertical: 10, horizontal: 13),
                     border: OutlineInputBorder(

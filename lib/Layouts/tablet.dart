@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Layouts/app_bar_layout.dart';
 import 'package:flutter_application_1/Layouts/drawer_layout.dart';
+import 'package:flutter_application_1/Layouts/suggetionBox.dart';
 
 class Tablet extends StatefulWidget {
   @override
@@ -10,6 +11,7 @@ class Tablet extends StatefulWidget {
 }
 
 class _Tablet extends State<Tablet> {
+  bool isfocused = false;
   bool tabMode = true;
   bool _enabled = false;
 
@@ -21,6 +23,11 @@ class _Tablet extends State<Tablet> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarLayout(
+        onValueChanged: (Focused) {
+          setState(() {
+            isfocused = Focused;
+          });
+        },
         tabletMode: tabMode,
         enabled: _enabled,
         onMenuPressed: () {},
@@ -28,21 +35,26 @@ class _Tablet extends State<Tablet> {
       drawer: DrawerLayout(
         enabled: tabMode,
       ),
-      body: Row(
+      body: Stack(
         children: [
-          DrawerLayout(
-            enabled: _enabled,
+          Row(
+            children: [
+              DrawerLayout(
+                enabled: _enabled,
+              ),
+              Expanded(
+                child: Column(
+                  children: [
+                    Container(
+                      height: 30,
+                      color: const Color(0xFF1C1A1A),
+                    )
+                  ],
+                ),
+              ),
+            ],
           ),
-          Expanded(
-            child: Column(
-              children: [
-                Container(
-                  height: 30,
-                  color: const Color(0xFF1C1A1A),
-                )
-              ],
-            ),
-          ),
+          SuggetionBox(isFocused: isfocused),
         ],
       ),
     );

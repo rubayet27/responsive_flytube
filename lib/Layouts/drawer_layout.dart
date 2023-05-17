@@ -8,6 +8,7 @@ class DrawerLayout extends StatelessWidget {
   DrawerLayout({required this.enabled});
   @override
   Widget build(BuildContext context) {
+    double wid = MediaQuery.of(context).size.width;
     return Drawer(
       width: enabled ? 250 : 60,
       child: Scrollbar(
