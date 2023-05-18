@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class SuggetionBox extends StatefulWidget {
   late bool isFocused;
+
   SuggetionBox({required this.isFocused});
   @override
   State<StatefulWidget> createState() {
@@ -18,6 +19,7 @@ class _SuggetionBox extends State<SuggetionBox> {
       child: Visibility(
         visible: widget.isFocused,
         child: Container(
+          padding: const EdgeInsets.only(top: 20, bottom: 20),
           width: wid > 1000
               ? wid * 0.5
               : wid > 800
@@ -28,8 +30,28 @@ class _SuggetionBox extends State<SuggetionBox> {
           height: 350,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color:Colors.white, 
+            color: Colors.white,
           ),
+          child: ListView.builder(
+              itemCount: 12,
+              itemBuilder: (BuildContext context, index) {
+                return InkWell(
+                    onTap: () {},
+                    child: ListTile(
+                      leading: const Icon(
+                        Icons.history,
+                        color: Colors.black,
+                      ),
+                      title: Text(
+                        "Suggetion $index",
+                        style: const TextStyle(color: Colors.black),
+                      ),
+                      trailing: const Text(
+                        "Remove",
+                        style: TextStyle(color: Color(0xff0011F5)),
+                      ),
+                    ));
+              }),
         ),
       ),
     );
