@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'drawer_items.dart';
 import 'home.dart';
 
+// ignore: must_be_immutable
 class DrawerLayout extends StatelessWidget {
   late bool enabled;
   DrawerLayout({required this.enabled});
   @override
   Widget build(BuildContext context) {
-    double wid = MediaQuery.of(context).size.width;
     return Drawer(
       width: enabled ? 250 : 60,
       child: Scrollbar(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Layouts/notification_account.dart';
 
+// ignore: must_be_immutable
 class AppBarLayout extends StatefulWidget implements PreferredSizeWidget {
   late ValueChanged onValueChanged;
   late bool enabled;
@@ -155,20 +157,38 @@ class _AppBarLayoutState extends State<AppBarLayout> {
         ),
       ),
 
-      actions: const [
+      actions: [
         Padding(
           padding: EdgeInsets.only(right: 10),
-          child: Icon(
-            Icons.notifications_none_outlined,
-            size: 27,
-          ),
+          child: IconButton(
+              onPressed: () {
+                showDialog(
+                    barrierColor: Colors.transparent,
+                    context: context,
+                    builder: (context) {
+                      return NotificationCenter();
+                    });
+              },
+              icon: const Icon(
+                Icons.notifications_none_outlined,
+                size: 27,
+              )),
         ),
         Padding(
-          padding: EdgeInsets.only(right: 20),
-          child: Icon(
-            Icons.account_circle,
-            size: 27,
-          ),
+          padding: const EdgeInsets.only(right: 20),
+          child: IconButton(
+              onPressed: () {
+                showDialog(
+                    barrierColor: Colors.transparent,
+                    context: context,
+                    builder: (context) {
+                      return AccountCenter();
+                    });
+              },
+              icon: const Icon(
+                Icons.account_circle,
+                size: 27,
+              )),
         ),
       ],
     );

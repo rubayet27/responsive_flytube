@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class SuggetionBox extends StatefulWidget {
   late bool isFocused;
 
