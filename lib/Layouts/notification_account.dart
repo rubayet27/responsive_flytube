@@ -22,7 +22,6 @@ class AccountCenter extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       backgroundColor: Colors.transparent,
-      
       shadowColor: Colors.red,
       alignment: Alignment.topRight,
       content: Container(
