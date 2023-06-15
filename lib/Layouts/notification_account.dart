@@ -4,7 +4,7 @@ class NotificationCenter extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       backgroundColor: Colors.transparent,
-      shadowColor: Colors.red,
+      elevation: 0,
       alignment: Alignment.topRight,
       content: Container(
         width: 400,
@@ -58,7 +58,7 @@ class AccountCenter extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       backgroundColor: Colors.transparent,
-      shadowColor: Colors.red,
+      elevation: 0,
       alignment: Alignment.topRight,
       content: Container(
         width: 300,

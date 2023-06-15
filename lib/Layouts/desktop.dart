@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Layouts/app_bar_layout.dart';
+import 'package:flutter_application_1/Layouts/content_page.dart';
 import 'package:flutter_application_1/Layouts/drawer_layout.dart';
 import 'package:flutter_application_1/Layouts/suggetionBox.dart';
 
@@ -49,6 +50,7 @@ class _Desktop extends State<Desktop> {
                       height: 30,
                       color: const Color(0xFF1C1A1A),
                     ),
+                    ContentPage(),
                   ],
                 ),
               ),
