@@ -28,11 +28,45 @@ class _ContentPage extends State<ContentPage> {
               child: SizedBox(
                 height: 200,
                 width: 200,
-                child: Container(
-                  color: Colors.blue,
-                  child: Center(
-                    child: Text("Container no. $index"),
-                  ),
+                child: Column(
+                  children: [
+                    Flexible(
+                      flex: 4,
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(15),
+                            topRight: Radius.circular(15),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Flexible(
+                      flex: 1,
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          color: Colors.amber,
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(15),
+                            bottomRight: Radius.circular(15),
+                          ),
+                        ),
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Row(
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 10, top: 5),
+                                child: Text("The video Number is $index"),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
                 ),
               ),
             );

@@ -19,7 +19,7 @@ class DrawerItem extends StatelessWidget {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
           return navigatePage;
         },
-        settings: RouteSettings(name: navigatePage?.)
+        settings: RouteSettings(name: navigatePage?.toString())
         )
         );*/
       },

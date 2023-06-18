@@ -118,3 +118,28 @@ class AccountCenter extends StatelessWidget {
     );
   }
 }
+
+class VoiceSearch extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    double wid = MediaQuery.of(context).size.width;
+    return AlertDialog(
+      alignment: Alignment.topCenter,
+      backgroundColor: Colors.transparent,
+      content: Container(
+        height: 400,
+        width: wid > 550 ? wid * 0.5 : wid * 0.8,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: Colors.grey,
+        ),
+        child: const Center(
+          child: Icon(
+            Icons.mic_outlined,
+            size: 50,
+          ),
+        ),
+      ),
+    );
+  }
+}

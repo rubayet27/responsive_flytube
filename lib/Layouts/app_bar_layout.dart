@@ -145,10 +145,19 @@ class _AppBarLayoutState extends State<AppBarLayout> {
                 decoration: const BoxDecoration(
                     color: Color(0xff484848), shape: BoxShape.circle),
                 width: 40,
-                child: const Center(
-                  child: Icon(
-                    Icons.mic,
-                    size: 20,
+                child: Center(
+                  child: IconButton(
+                    icon:const Icon(
+                      Icons.mic,
+                      size: 20,
+                    ),
+                    onPressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (context) {
+                            return VoiceSearch();
+                          });
+                    },
                   ),
                 ),
               ),
