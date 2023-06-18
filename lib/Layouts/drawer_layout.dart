@@ -20,7 +20,8 @@ class DrawerLayout extends StatelessWidget {
               ? DrawerItem(
                   icondata: Icons.home,
                   title: "Home",
-                  navigatePage: HomePage(),
+                  navigatePage:
+                      HomePage(), // Use the MyApp() to call the home page with responsiveness
                 )
               : DrawerItem(navigatePage: HomePage(), icondata: Icons.home),
           enabled
