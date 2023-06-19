@@ -15,11 +15,6 @@ class _Tablet extends State<Tablet> {
   bool isfocused = false;
   bool tabMode = true;
   bool _enabled = false;
-
-  Menuenabled() {
-    return Drawer();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
