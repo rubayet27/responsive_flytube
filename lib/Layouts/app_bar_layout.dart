@@ -32,6 +32,7 @@ class _AppBarLayoutState extends State<AppBarLayout> {
     super.initState();
   }
 
+  @override
   void dispose() {
     _focusNode.dispose();
     super.dispose();
@@ -168,7 +169,7 @@ class _AppBarLayoutState extends State<AppBarLayout> {
 
       actions: [
         Padding(
-          padding: EdgeInsets.only(right: 10),
+          padding: const EdgeInsets.only(right: 10),
           child: IconButton(
               onPressed: () {
                 showDialog(

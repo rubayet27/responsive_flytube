@@ -1,54 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Layouts/app_bar_layout.dart';
-import 'package:flutter_application_1/Layouts/content_page.dart';
 import 'package:flutter_application_1/Layouts/drawer_layout.dart';
 import 'package:flutter_application_1/Layouts/suggetionBox.dart';
 
-class Tablet extends StatefulWidget {
+class LibraryPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _Tablet();
+    return _LibraryPage();
   }
 }
 
-class _Tablet extends State<Tablet> {
+class _LibraryPage extends State<LibraryPage> {
   bool isfocused = false;
-  bool tabMode = true;
+  bool tabletmode = true;
   final bool _enabled = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: DrawerLayout(enabled: tabletmode),
       appBar: AppBarLayout(
+        enabled: _enabled,
         onValueChanged: (Focused) {
           setState(() {
             isfocused = Focused;
           });
         },
-        tabletMode: tabMode,
-        enabled: _enabled,
-        onMenuPressed: () {},
-      ),
-      drawer: DrawerLayout(
-        enabled: tabMode,
+        tabletMode: tabletmode,
       ),
       body: Stack(
         children: [
           Row(
             children: [
-              DrawerLayout(
-                enabled: _enabled,
-              ),
-              Expanded(
-                child: Column(
-                  children: [
-                    Container(
-                      height: 30,
-                      color: const Color(0xFF1C1A1A),
-                    ),
-                    ContentPage(),
-                  ],
-                ),
-              ),
+              DrawerLayout(enabled: _enabled),
+              Expanded(child: Column()),
             ],
           ),
           SuggetionBox(isFocused: isfocused),
