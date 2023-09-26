@@ -55,12 +55,21 @@ class _ContentPage extends State<ContentPage> {
                         child: Align(
                           alignment: Alignment.topLeft,
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Padding(
                                 padding:
                                     const EdgeInsets.only(left: 10, top: 5),
                                 child: Text("The video Number is $index"),
                               ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: IconButton(
+                                  icon: const Icon(Icons.more_vert),
+                                  onPressed: (){},
+                                  splashRadius: 0.2,
+                                ),
+                              )
                             ],
                           ),
                         ),
