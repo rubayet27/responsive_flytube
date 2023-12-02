@@ -32,7 +32,7 @@ class _LibraryPage extends State<LibraryPage> {
           Row(
             children: [
               DrawerLayout(enabled: _enabled),
-              Expanded(child: Column()),
+              const Expanded(child: Column()),
             ],
           ),
           SuggetionBox(isFocused: isfocused),

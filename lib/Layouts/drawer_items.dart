@@ -5,8 +5,10 @@ class DrawerItem extends StatelessWidget {
   late IconData icondata;
   late var navigatePage;
   late String? title;
+  late bool enabled;
 
   DrawerItem({
+    required this.enabled,
     required this.icondata,
     this.title,
     this.navigatePage,
@@ -23,14 +25,32 @@ class DrawerItem extends StatelessWidget {
         )
         );*/
       },
-      child: ListTile(
-        leading: Icon(
-          icondata,
-          size: icondata == Icons.home ? 22 : 18,
-        ),
-        title: Text(
-          title ?? "",
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+      child: SizedBox(
+        height: 48,
+        child: Row(
+          mainAxisAlignment:
+              enabled ? MainAxisAlignment.start : MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: enabled
+                  ? const EdgeInsets.only(left: 20)
+                  : EdgeInsets.zero,
+              child: Icon(
+                icondata,
+                size: icondata == Icons.home ? 22 : 18,
+              ),
+            ),
+            Padding(
+              padding: enabled
+                  ? const EdgeInsets.only(left: 20)
+                  : EdgeInsets.zero,
+              child: Text(
+                title ?? "",
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+              ),
+            ),
+          ],
         ),
       ),
     );

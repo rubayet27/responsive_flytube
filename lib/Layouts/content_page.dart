@@ -19,7 +19,11 @@ class _ContentPage extends State<ContentPage> {
                 ? 1
                 : wid < 1100
                     ? 2
-                    : 3,
+                    : wid < 1400
+                        ? 3
+                        : wid < 1700
+                            ? 4
+                            : 5,
             childAspectRatio: wid < 900 ? 200 / 100 : 200 / 200,
           ),
           itemBuilder: (context, index) {
@@ -39,6 +43,9 @@ class _ContentPage extends State<ContentPage> {
                             topLeft: Radius.circular(15),
                             topRight: Radius.circular(15),
                           ),
+                        ),
+                        child: Center(
+                          child: Text(wid.toString()),
                         ),
                       ),
                     ),
@@ -60,13 +67,13 @@ class _ContentPage extends State<ContentPage> {
                               Padding(
                                 padding:
                                     const EdgeInsets.only(left: 10, top: 5),
-                                child: Text("The video Number is $index"),
+                                child: Text("The video Number is ${index + 1}"),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(top: 10),
                                 child: IconButton(
                                   icon: const Icon(Icons.more_vert),
-                                  onPressed: (){},
+                                  onPressed: () {},
                                   splashRadius: 0.2,
                                 ),
                               )
