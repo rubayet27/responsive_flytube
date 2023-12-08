@@ -26,7 +26,7 @@ class _Tablet extends State<Tablet> {
         },
         tabletMode: tabMode,
         enabled: _enabled,
-        onMenuPressed: () {},
+        
       ),
       drawer: DrawerLayout(
         enabled: tabMode,
