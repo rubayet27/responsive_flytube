@@ -38,14 +38,14 @@ class _ContentPage extends State<ContentPage> {
                       flex: 4,
                       child: Container(
                         decoration: const BoxDecoration(
-                          color: Colors.blue,
+                          color: Color.fromARGB(255, 58, 58, 58),
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(15),
                             topRight: Radius.circular(15),
                           ),
                         ),
-                        child: Center(
-                          child: Text(wid.toString()),
+                        child: const Center(
+                          child: Text("Context"),
                         ),
                       ),
                     ),
@@ -53,7 +53,7 @@ class _ContentPage extends State<ContentPage> {
                       flex: 1,
                       child: Container(
                         decoration: const BoxDecoration(
-                          color: Colors.amber,
+                          color: Color.fromARGB(255, 90, 90, 90),
                           borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(15),
                             bottomRight: Radius.circular(15),
@@ -67,7 +67,7 @@ class _ContentPage extends State<ContentPage> {
                               Padding(
                                 padding:
                                     const EdgeInsets.only(left: 10, top: 5),
-                                child: Text("The video Number is ${index + 1}"),
+                                child: Text("The video Title is ${index + 1}"),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(top: 10),
