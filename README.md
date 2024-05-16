@@ -1,6 +1,7 @@
 # Youtube UI clone With Flutter
 
-A new Flutter project.
+A new Responsive Flutter project.
+Highly responsive with desktop and other screens.
 
 ## Getting Started
 
