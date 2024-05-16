@@ -5,7 +5,7 @@ Highly responsive with desktop and other screens.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This is a simple flutter project where I Clone the Youtube home page Ui. It's responsiveness exactly behave like real Youtube. 
 
 A few resources to get you started if this is your first Flutter project:
 
